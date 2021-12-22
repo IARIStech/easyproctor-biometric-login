@@ -148,7 +148,7 @@ const CaptureBiometryView = defineComponent({
                 const [request] = UserService.UpdateUserFace(dataToSend);
                 const resp = await request;
 
-                replace({ name: process.env.VUE_APP_REDIRECT_URL });
+                replace({ name: process.env.VUE_APP_REGISTER_REDIRECT_URL });
             } catch (error) {
                 console.log(error)
                 loading.value = false;
