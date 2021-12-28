@@ -27,18 +27,18 @@ Para utilizar o login biométrico no EasyProctor é necessário algumas etapas q
 [[registerUser]]
 === Cadastrar usuário
 
-A etapa inicial para permitir que um usuário registre sua biometria na plataforma EasyProctor é utilizar a https://api-dev.easyproctor.tech[API] para cadastrar o usuário.
+A etapa inicial para permitir que um usuário registre sua biometria na plataforma EasyProctor é utilizar a https://iaris.easyproctor.tech[API] para cadastrar o usuário.
 
-O endpoint a ser utilizado para este propósito é o POST `api.easyproctor.tech/api/User/` que deverá enviar os seguintes dados do usuário: nome, CPF, email e data de Nascimento.
+O endpoint a ser utilizado para este propósito é o POST `https://iaris.easyproctor.tech/api/User/` que deverá enviar os seguintes dados do usuário: CPF e email.
 
 [[registerFace]]
 === Registrar face do usuário
 
-Após o usuário estar cadastrado na base de usuários do EasyProctor, é necessário que o usuário seja encaminhado para a seguinte rota deste SDK `/register/:userCPF` onde deverá ser passado na query o cpf do usuário no qual será cadastrada a face. A tela de cadastro quando finalizada com sucesso, utilizará a rota de direcionamento presente no arquivo `.env` para encaminhar o usuário para a rota desejada.
+Após o usuário estar cadastrado na base de usuários do EasyProctor, é necessário que o usuário seja encaminhado para a seguinte rota deste SDK `/register/{userCPF}` onde deverá ser passado na query o cpf do usuário no qual será cadastrada a face. A tela de cadastro quando finalizada com sucesso, utilizará a rota de direcionamento presente no arquivo `.env` para encaminhar o usuário para a rota desejada.
 
-Para verificar o status de registro de um usuário, basta utilizar o seguinte endpoint de nossa https://api-dev.easyproctor.tech[API]: GET `api.easyproctor.tech/api/User/`
+Para verificar o status de registro de um usuário, basta utilizar o seguinte endpoint de nossa https://iaris.easyproctor.tech[API]: GET `https://iaris.easyproctor.tech/api/User/cpf/{cpf}`
 
 [[login]]
 === Realizar login biométrico do usuário
 
-Para realizar o login biométrico é necessário que o usuário já esteja cadastro e já tenha registrado sua face no EasyProctor. Para realizar o login, é necessário que o usuário seja encaminhado para a seguinte rota deste SDK `/login/:userCPF` onde deverá ser passado na query o cpf do usuário no qual será verificada a face. O retorno desse endpoint irá conter um token de autenticação em sua resposta. A tela de login quando finalizada com sucesso, utilizará a rota de direcionamento presente no arquivo `.env` para encaminhar o usuário para a rota desejada. 
+Para realizar o login biométrico é necessário que o usuário já esteja cadastro e já tenha registrado sua face no EasyProctor. Para realizar o login, é necessário que o usuário seja encaminhado para a seguinte rota deste SDK `/login/{userCPF}` onde deverá ser passado na query o cpf do usuário no qual será verificada a face. O retorno desse endpoint irá conter um token de autenticação em sua resposta. A tela de login quando finalizada com sucesso, utilizará a rota de direcionamento presente no arquivo `.env` para encaminhar o usuário para a rota desejada. 

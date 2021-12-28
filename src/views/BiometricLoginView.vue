@@ -30,7 +30,9 @@ const BiometricLoginView = defineComponent({
             const [ request ] = UserService.Login({ emailOrCpf: cpf.replace(new RegExp("[.-]", "gi"), ''), key: data.picture.substr(22, data.picture.length) });
             request
                 .then(resp => {
-                    replace({ name: process.env.VUE_APP_LOGIN_REDIRECT_URL });
+                    // TODO: Enviar de volta o token de autenticacao
+                    const token = resp.token;
+                    window.location.href =  process.env.VUE_APP_LOGIN_REDIRECT_URL;
                 })
                 .catch((error) => {
                     loading.value = false;

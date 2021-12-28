@@ -3,7 +3,7 @@ export default interface UserDTO {
     birthday: string;
     email: string;
     id: number;
-    name: string;
+    token:string;
     registerStatus:
     | "INSERTED"
     | "BIOMETRY_MISSING"
